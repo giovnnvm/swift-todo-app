@@ -1,0 +1,56 @@
+name: SwiftTODOApp
+
+options:
+  deploymentTarget:
+    iOS: 15.0
+  indentWidth: 4
+  tabWidth: 4
+  attributes:
+    ORGANIZATIONNAME: "Giovanni Vicentin Moratto"
+
+settings:
+  base:
+    SWIFT_VERSION: 5.7
+    IPHONEOS_DEPLOYMENT_TARGET: 15.0
+    TARGETED_DEVICE_FAMILY: 1
+    PRODUCT_NAME: $(TARGET_NAME)
+    PRODUCT_BUNDLE_IDENTIFIER: com.giovannimoratto.$(PRODUCT_NAME)
+    MARKETING_VERSION: 1.0.0
+    CURRENT_PROJECT_VERSION: 1
+
+targets:
+  SwiftTODOApp:
+    type: application
+    platform: iOS
+    sources: [SwiftTODOApp]
+    resources: [SwiftTODOApp/Resources]
+    info:
+      path: SwiftTODOApp/Info.plist
+      properties:
+        CFBundleDisplayName: SwiftTODOApp
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        UIRequiresFullScreen: true
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: true
+          UISceneConfigurations:
+            UIWindowSceneSessionRoleApplication:
+              - UISceneConfigurationName: Default Configuration
+                UISceneDelegateClassName: $(PRODUCT_MODULE_NAME).SceneDelegate
+    settings:
+      base:
+        SUPPORTED_INTERFACE_ORIENTATIONS: UIInterfaceOrientationPortrait
+
+schemes:
+  SwiftTODOApp:
+    build:
+      targets:
+        SwiftTODOApp: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+      gatherCoverageData: true
+    archive:
+      config: Release
